@@ -985,6 +985,7 @@ def use_uploadpy(request):
 
 
 @deco.require_methods('POST')
+@deco.login_required
 @deco.upload_required
 def upload(request):
   """/upload - Used by upload.py to create a new Issue and add PatchSet's to

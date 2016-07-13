@@ -40,8 +40,19 @@ handlers:
   script: backends.app
   login: admin
 
+# Upload URLs, use @login_required decorator for user info.
+- url: /upload
+  script: main.application
+
+- url: /\d*/upload_content/.*
+  script: main.application
+
+- url: /\d*/upload_complete/.*
+  script: main.application
+
 - url: /.*
   script: main.application
+  login: required
 
 admin_console:
   pages:
