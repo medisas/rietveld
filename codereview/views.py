@@ -1694,7 +1694,8 @@ def close(request):
       issue.description = new_description
   issue.put()
 
-  url = 'https://api.github.com/repos/medisas/' + issue.repo_name + '/git/refs/heads/rietveld-' + str(issue.key.id())
+  repo_name = issue.repo_name or ''
+  url = 'https://api.github.com/repos/medisas/' + repo_name + '/git/refs/heads/rietveld-' + str(issue.key.id())
   try:
     headers = {'Authorization': 'token ' + models.Settings.get('GITHUB_ACCESS_TOKEN')}
     result = urlfetch.fetch(
