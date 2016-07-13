@@ -1693,6 +1693,17 @@ def close(request):
     if new_description:
       issue.description = new_description
   issue.put()
+
+  url = 'https://api.github.com/repos/medisas/' + issue.repo_name + '/git/refs/heads/rietveld-' + str(issue.key.id())
+  try:
+    headers = {'Authorization': 'token ' + models.Settings.get('GITHUB_ACCESS_TOKEN')}
+    result = urlfetch.fetch(
+      url=url,
+      method=urlfetch.DELETE,
+      headers=headers)
+  except urlfetch.Error:
+    logging.exception('Caught exception fetching url')
+
   return HttpTextResponse('Closed')
 
 
