@@ -201,6 +201,7 @@ class UploadForm(forms.Form):
   send_mail = forms.BooleanField(required=False)
   base_hashes = forms.CharField(required=False)
   repo_guid = forms.CharField(required=False, max_length=MAX_URL)
+  repo_name = forms.CharField(required=False, max_length=100)
 
   def clean_base(self):
     base = self.cleaned_data.get('base')
@@ -1300,7 +1301,8 @@ def _make_new(request, form):
                        cc=cc,
                        private=form.cleaned_data.get('private', False),
                        n_comments=0,
-                       key=issue_key)
+                       key=issue_key,
+                       repo_name=form.cleaned_data['repo_name'])
   issue.put()
 
   first_ps_id, _ = models.PatchSet.allocate_ids(1, parent=issue.key)

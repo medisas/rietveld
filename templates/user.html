@@ -14,7 +14,7 @@ document.onkeydown = M_dashboardKeyDown;
 
   {%if draft_issues%}
   <tr class="header draft">
-    <td colspan="9" class="header">
+    <td colspan="10" class="header">
       <h3>Issues with drafts by me</h3>
     </td>
   </tr>
@@ -25,13 +25,13 @@ document.onkeydown = M_dashboardKeyDown;
   {%endif%}
 
   <tr class="header incoming">
-    <td colspan="9" class="header">
+    <td colspan="10" class="header">
       <h3>Incoming reviews {%nickname email%} ({{review_issues|length}})</h3>
     </td>
   </tr>
   {%if not review_issues%}
     <tr>
-      <td colspan="9" class="first last">
+      <td colspan="10" class="first last">
         <span class="disabled">(None)</span>
       </td>
     </tr>
@@ -43,13 +43,13 @@ document.onkeydown = M_dashboardKeyDown;
   {%endif%}
 
   <tr class="header outgoing">
-    <td colspan="9" class="header">
+    <td colspan="10" class="header">
       <h3>Outgoing reviews {%nickname email%} ({{outgoing_issues|length}})</h3>
     </td>
   </tr>
   {%if not outgoing_issues%}
     <tr>
-      <td colspan="9" class="first last">
+      <td colspan="10" class="first last">
         <span class="disabled">(None)</span>
       </td>
     </tr>
@@ -61,13 +61,13 @@ document.onkeydown = M_dashboardKeyDown;
   {%endif%}
 
   <tr class="header unsent">
-    <td colspan="9" class="header">
+    <td colspan="10" class="header">
       <h3>Unsent issues {%nickname email%} ({{unsent_issues|length}})</h3>
     </td>
   </tr>
   {%if not unsent_issues%}
     <tr>
-      <td colspan="9" class="first last">
+      <td colspan="10" class="first last">
         <span class="disabled">(None)</span>
       </td>
     </tr>
@@ -79,13 +79,13 @@ document.onkeydown = M_dashboardKeyDown;
   {%endif%}
 
   <tr class="header cc">
-    <td colspan="9" class="header">
+    <td colspan="10" class="header">
       <h3>Issues CCd to {%nickname email%} ({{cc_issues|length}})</h3>
     </td>
   </tr>
   {%if not cc_issues%}
     <tr>
-      <td colspan="9" class="first last">
+      <td colspan="10" class="first last">
         <span class="disabled">(None)</span>
       </td>
     </tr>
@@ -97,13 +97,13 @@ document.onkeydown = M_dashboardKeyDown;
   {%endif%}
 
   <tr class="header closed">
-    <td colspan="9" class="header">
+    <td colspan="10" class="header">
       <h3>Closed Recently ({{closed_issues|length}})</h3>
     </td>
   </tr>
   {%if not closed_issues%}
     <tr>
-      <td colspan="9" class="first last">
+      <td colspan="10" class="first last">
         <span class="disabled">(None)</span>
       </td>
     </tr>

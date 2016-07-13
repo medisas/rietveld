@@ -79,6 +79,9 @@ class Issue(ndb.Model):
   # JSON: {reviewer_email -> int}
   draft_count_by_user = ndb.TextProperty()
 
+  # Medisas-specific column.
+  repo_name = ndb.StringProperty()
+
   _is_starred = None
   _has_updates_for_current_user = None
   _original_subject = None
