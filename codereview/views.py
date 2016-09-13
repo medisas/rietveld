@@ -1666,6 +1666,9 @@ def delete(request):
               models.Message, models.Content]:
     tbd += cls.query(ancestor=issue.key)
   ndb.delete_multi(entity.key for entity in tbd)
+
+  _delete_github_branch(issue)
+
   return HttpResponseRedirect(reverse(mine))
 
 
@@ -1694,6 +1697,12 @@ def close(request):
       issue.description = new_description
   issue.put()
 
+  _delete_github_branch(issue)
+
+  return HttpTextResponse('Closed')
+
+
+def _delete_github_branch(issue):
   repo_name = issue.repo_name or ''
   url = 'https://api.github.com/repos/medisas/' + repo_name + '/git/refs/heads/rietveld/' + str(issue.key.id())
   try:
@@ -1704,8 +1713,6 @@ def close(request):
       headers=headers)
   except urlfetch.Error:
     logging.exception('Caught exception fetching url')
-
-  return HttpTextResponse('Closed')
 
 
 @deco.require_methods('POST')
