@@ -35,7 +35,9 @@ login_warned = false;
 {%endif%}
 
 <div style="float: left;">
-  <h2 style="margin-bottom: 0em; margin-top: 0em;">Side by Side Diff: {{patch.filename}}</h2>
+  <h2 style="margin-bottom: 0em; margin-top: 0em;">Side by Side Diff: {{patch.filename}}
+    <img src="https://circleci.com/gh/medisas/{{issue.repo_name}}/tree/rietveld%2F{{issue.key.id}}.png?circle-token=:circle-token">
+  </h2>
   <div style="margin-top: .2em;">{%include "issue_star.html"%}
     <b>Issue <a href="{%url codereview.views.show issue.key.id%}" onmouseover="M_showPopUp(this, 'popup-issue');" id="upCL">{{issue.key.id}}</a>:</b>
   {{issue.subject}} {%if issue.closed %} (Closed) {%endif%}

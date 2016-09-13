@@ -35,7 +35,9 @@ login_warned = false;
 {%endif%}
 
 <div style="float: left;">
-  <h2 style="margin-bottom: 0em; margin-top: 0em;">Unified Diff: {{patch.filename}}</h2>
+  <h2 style="margin-bottom: 0em; margin-top: 0em;">Unified Diff: {{patch.filename}}
+    <img src="https://circleci.com/gh/medisas/{{issue.repo_name}}/tree/rietveld%2F{{issue.key.id}}.png?circle-token=:circle-token">
+  </h2>
   {%ifnotequal patch.nav_type "patch"%}
     <span style="color:red">Side-by-side diff isn't available for this file because of its large size.</span>
   {%endifnotequal%}

@@ -48,6 +48,7 @@
                onmouseover="M_showPopUp(this, 'popup-issue');">
             {{issue.key.id}}</a>:
     {{issue.subject}} {%if issue.closed %} (Closed) {%endif%}
+    <img src="https://circleci.com/gh/medisas/{{issue.repo_name}}/tree/rietveld%2F{{issue.key.id}}.png?circle-token=:circle-token">
   </h2>
 
   <table class="issue-details" border="0" width="100%">
