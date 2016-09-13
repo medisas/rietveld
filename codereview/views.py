@@ -1623,6 +1623,9 @@ def edit(request):
   issue.calculate_updates_for()
   issue.put()
 
+  if issue.closed:
+    _delete_github_branch(issue)
+
   return HttpResponseRedirect(reverse(show, args=[issue.key.id()]))
 
 
